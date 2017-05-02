@@ -25,12 +25,15 @@ var quotes = [
     tags: ['Cosmos', 'Mindblowing', 'Aliens', 'Universe']
   }
 ];
-
-function getRandomNumber(upper) {
-  return Math.floor(Math.random()*upper);
+//Works just like Math.random in the way that can generate the lower value but it is asymptotic to max
+function getRandomArbitrary(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
 }
+
 function getRandomQuote() {
-  var i = getRandomNumber(quotes.length);
+  //As Math.Random excludes 1 we generate all the possible numbers from 0 to quotes.length-1.
+  //Just perfect because of the 0 index array we never generate every value.
+  var i = getRandomArbitrary(0,quotes.length);
   return quotes[i];
 
 }
@@ -56,16 +59,19 @@ function printQuote() {
   }
   html += '</p>';
   document.getElementById('quote-box').innerHTML = html;
-  changeBackground();
+   changeBackground();
 }
 
 
  // Grabs the container div and changes it to a randomized RGB color.
 function changeBackground(){
-  var r = getRandomNumber(255);
-  var g = getRandomNumber(255);
-  var b = getRandomNumber(255);
-  var color = '(' + r + ',' + g + ',' +  b + ')';
-  document.getElementsByClassName('container').style.color = 'black';
+  var hex = [ ];
+  for (var i = 0; i < 6; i++){
+    if(i%2==0) hex.push(String.fromCharCode(getRandomArbitrary(97,102)));
+    else hex.push(String.fromCharCode(getRandomArbitrary(48,57)));
+  }
+  let body = document.querySelector('body');
+
+  body.style.backgroundColor = '#' + hex.join('');
 
 }
