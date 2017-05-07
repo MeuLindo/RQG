@@ -2,6 +2,8 @@
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+window.setInterval(printQuote,30000)
+
 // Array of all the quotes
 var quotes = [
   {
@@ -59,24 +61,17 @@ function printQuote() {
   var html = '';
 
   for(key in quoteObj){ //this loop guarantees that all the properties in the quoteObj are printed
+
     if(key === 'quote') html += '<p class="quote">' + quoteObj[key] + '</p>';
     if(key === 'source') html += '<p class="source">' + quoteObj[key];
     if(key === 'citation') html += '<span class="citation">' + quoteObj[key] + '</span>';
     if(key === 'year') html += '<span class="year">' + quoteObj[key] + '</span>';
     if(key === 'tags') html += '<span class="tags">' + '<br />' + quoteObj[key] + '</span>';
-    // if(key === 'tags'){
-    //   html += '<span class="tags">';
-    //   for(var i = 0 ; i < key.tags.length ; i++){
-    //      var tag = key.tags[i];
-    //      html += tag + ' ,';
-    //
-    //     }
-    //   html += '</span>';
-    //   }
+
   }
   html += '</p>';
   document.getElementById('quote-box').innerHTML = html;
-   changeBackground();
+  changeBackground();
 }
 
 
@@ -84,11 +79,11 @@ function printQuote() {
 function changeBackground(){
   var hex = [ ];
   for (var i = 0; i < 6; i++){
-    if(i%2==0) hex.push(String.fromCharCode(getRandomArbitrary(97,102)));
-    else hex.push(String.fromCharCode(getRandomArbitrary(48,57)));
+    if(i%2==0) hex.push(String.fromCharCode(getRandomArbitrary(48,57))); // generates a number between 0 and 9 and assigns it to the pair indexes
+    else hex.push(String.fromCharCode(getRandomArbitrary(97,102))); // generates a letter from A to F and assigns it to the odd indexes
   }
-  let body = document.querySelector('body');
+  let body = document.querySelector('body'); //grabs the body tag
 
-  body.style.backgroundColor = '#' + hex.join('');
+  body.style.backgroundColor = '#' + hex.join(''); //changes the body background HEX
 
 }

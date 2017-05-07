@@ -31,7 +31,7 @@
   * Function named `printQuote` calls the `randomQuote` function  :white_check_mark:
   * Function prints the quote to the page using the template supplied in the project instructions  :white_check_mark:
 * Exceeds Expectations
-  * Quotes change automatically after certain amount of time passes
+  * Quotes change automatically after certain amount of time passes  :white_check_mark:
   * Background color changes each time the quote changes  :white_check_mark:
 ## Code comments
 * Needs Work
