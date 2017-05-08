@@ -30,16 +30,22 @@ var quotes = [
   {
     quote: "There is no greater education than one that is self-driven. You go to the library, visit museums because you want to learn, and your quest for knowledge outside of school magnifies what happens when you are in school.",
     source: "Neil deGrasse Tyson",
-    citatio: "University of Washington",
+    citation: "University of Washington",
     year: 2011,
     tags: ['Education',' Self-driven']
   },
   {
     quote: "Do not take life too seriously - you will never get out of it alive.",
     source: "Elbert Hubbard",
-    citatio: "A Thousand & One Epigrams: Selected from the Writings of Elbert Hubbard",
+    citation: "A Thousand & One Epigrams: Selected from the Writings of Elbert Hubbard",
     year: 1911,
     tags: ['Writer',' Philosophy ',' Life']
+  },
+  {
+    quote: "Believe in your dreams",
+    source: "Rosilene Oliveira Fonseca Faria",
+    year: 2017,
+    tags: ['Mãe',' Inspiração ',' Life', ' Sonhos']
   }
 ];
 
@@ -64,7 +70,7 @@ function getRandomQuote() {
   }
 
   console.log(placeholder);
-return splicedQuote;
+  return splicedQuote;
 
 }
 
