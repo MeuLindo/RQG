@@ -22,7 +22,7 @@
 * Meets Expectations
   * Function is named `getRandomQuote` and returns a random object from the quotes array  :white_check_mark:
 * Exceeds Expectations
-  * `getRandomQuote` does not return a duplicate quote until all quotes have been returned once
+  * `getRandomQuote` does not return a duplicate quote until all quotes have been returned once :white_check_mark:
 ## 'printQuote' function
 * Needs Work
   * ~~No function named `printQuote` or printQuote does not call the `randomQuote` fucntion~~

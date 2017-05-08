@@ -43,6 +43,8 @@ var quotes = [
   }
 ];
 
+var placeholder = []; // for the spliced quotes
+
 //Works just like Math.random in the way that can generate the lower value but it is asymptotic to max
 function getRandomArbitrary(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -52,7 +54,17 @@ function getRandomQuote() {
   //As Math.Random excludes 1 we generate all the possible numbers from 0 to quotes.length-1.
   //Just perfect because of the 0 index array we never generate every value.
   var i = getRandomArbitrary(0,quotes.length);
-  return quotes[i];
+  var splicedQuote = quotes.splice(i,1)[0]; //assigns the removed quote object to a var so we can push it later
+  console.log(splicedQuote) // Checking if no one is repeting
+  placeholder.push(splicedQuote); //pushes the used quote to an array that will be replace the empty array when that happens
+
+  if(quotes.length === 0){ //checks that the main array is empty and restart the vars
+    quotes = placeholder;
+    placeholder = [];
+  }
+
+  console.log(placeholder);
+return splicedQuote;
 
 }
 
